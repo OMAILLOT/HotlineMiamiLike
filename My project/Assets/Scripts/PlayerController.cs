@@ -1,4 +1,5 @@
 using BaseTemplate.Behaviours;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,16 @@ public class PlayerController : MonoSingleton<PlayerController>
 {
     [SerializeField] private float m_Speed;
     [SerializeField] private GameObject renderer;
+    [SerializeField] private Transform pistolPlaceHolder;
+    [SerializeField] private float randomPistolAngle;
+    [SerializeField] private float reloadTime;
+
+    [SerializeField] private int magasinMaxBullet;
+
+    private int currentMagasinNumber;
     private InputMovement m_Movement;
+    private bool isReloaded;
+   
 
 
 
@@ -17,8 +27,8 @@ public class PlayerController : MonoSingleton<PlayerController>
         m_Movement = new InputMovement();
         m_Movement.Enable();
 
-        //This outputs what language your system is in
-        Debug.Log("This system is in " + Application.systemLanguage);
+        currentMagasinNumber = magasinMaxBullet;
+
     }
     private void Update()
     {
@@ -31,9 +41,37 @@ public class PlayerController : MonoSingleton<PlayerController>
 
         if (Input.GetMouseButtonDown(0))
         {
-           PoolManager.Instance.SpawnFromPool("Bullet", renderer.transform.position, renderer.transform.rotation);
+            currentMagasinNumber--;
+            print(currentMagasinNumber);
+
+            if (currentMagasinNumber < 0)
+            {
+                if (!isReloaded)
+                {
+                    StartCoroutine(ReloadTime());
+                }
+                return;
+            }
+
+            PoolManager.Instance.SpawnFromPool("Bullet",
+                                                    pistolPlaceHolder.position,
+                                                    new Quaternion(renderer.transform.rotation.x,
+                                                    renderer.transform.rotation.y,
+                                                    Random.Range(renderer.transform.rotation.z - randomPistolAngle, renderer.transform.rotation.z + randomPistolAngle),
+                                                    renderer.transform.rotation.w));
         }
     }
+
+
+    IEnumerator ReloadTime()
+    {
+        isReloaded = true;
+        yield return new WaitForSeconds(reloadTime);
+        currentMagasinNumber = magasinMaxBullet;
+        isReloaded = false;
+    }
+
+
 
 
 }
