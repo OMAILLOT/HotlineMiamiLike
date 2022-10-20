@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyViewDetector : MonoBehaviour
 {
     [SerializeField] private Enemy m_Enemy;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.IsTouchingLayers(3))
         {

@@ -7,10 +7,17 @@ public class BasicSoldier : Enemy
     [SerializeField] private float timeBeforeShoot;
     [SerializeField] private Transform pistolPlaceHolder;
     [SerializeField] private float randomPistolAngle;
+    [SerializeField] private float shootTimeInterval;
+
+    private bool canShoot = true;
     protected override void Attack()
     {
         base.Attack();
-        StartCoroutine(Shoot());
+        if (canShoot)
+        {
+            canShoot = false;
+            StartCoroutine(Shoot());
+        }
     }
 
     IEnumerator Shoot()
@@ -22,5 +29,8 @@ public class BasicSoldier : Enemy
                                         newRenderer.transform.rotation.y,
                                         Random.Range(newRenderer.transform.rotation.z - randomPistolAngle, newRenderer.transform.rotation.z + randomPistolAngle),
                                         newRenderer.transform.rotation.w));
+        yield return new WaitForSeconds(shootTimeInterval);
+        canShoot = true;
+        
     }
 }
