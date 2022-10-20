@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoSingleton<PlayerController>
 {
@@ -70,6 +71,12 @@ public class PlayerController : MonoSingleton<PlayerController>
         currentMagasinNumber = magasinMaxBullet;
         isReloaded = false;
     }
+
+    public void PlayerDie()
+    {
+        renderer.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    } 
 
 
 
