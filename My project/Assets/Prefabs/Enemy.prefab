@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 546346427469659773}
   - component: {fileID: 546346427469659772}
   - component: {fileID: 546346427469659775}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,7 @@ MonoBehaviour:
   timeBeforeShoot: 0.2
   pistolPlaceHolder: {fileID: 1187108281}
   randomPistolAngle: 0.1
+  shootTimeInterval: 1.5
 --- !u!58 &546346427469659772
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -264,11 +265,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 5}
-      - {x: -3, y: 5}
+    - - {x: 0, y: 4.0122232}
+      - {x: -3.024092, y: 4.0122232}
       - {x: -0.43812227, y: -0.20978856}
       - {x: 0.44628286, y: -0.20978856}
-      - {x: 3.0887396, y: 5}
+      - {x: 3.064648, y: 4.0122237}
 --- !u!114 &13180568
 MonoBehaviour:
   m_ObjectHideFlags: 0

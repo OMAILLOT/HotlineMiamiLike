@@ -43,8 +43,6 @@ public class PlayerController : MonoSingleton<PlayerController>
         if (Input.GetMouseButtonDown(0))
         {
             currentMagasinNumber--;
-            print(currentMagasinNumber);
-
             if (currentMagasinNumber < 0)
             {
                 if (!isReloaded)

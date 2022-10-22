@@ -25,20 +25,20 @@ public class Bullet : MonoBehaviour, IPooledObject
         transform.Translate(Vector2.up * (speed * Time.deltaTime)); //direction de la bullet
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, layerTouch);
-
+    
         if (hit && !isHited)
         {
             isHited = true;
-            Debug.Log(hit.collider.name);
-            StartCoroutine(waitBeforeDisable(hit));
-            print("Layertouch value : " + layerTouch.value + ", layer : " + LayerMask.NameToLayer("Player"));
-            if (layerTouch.value == LayerMask.GetMask("Player"))
+
+            print("Layertouch value : " + hit.transform.gameObject.layer);
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 hit.collider.GetComponent<PlayerController>().PlayerDie();
-            } else
+            } else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 hit.collider.GetComponent<Enemy>().Die();
             }
+            StartCoroutine(waitBeforeDisable(hit));
         }
         
     }
