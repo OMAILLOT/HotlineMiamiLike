@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        //throw new System.NotImplementedException();
         renderer.SetActive(true);
     }
 
@@ -24,19 +23,20 @@ public class Bullet : MonoBehaviour, IPooledObject
     {
         transform.Translate(Vector2.up * (speed * Time.deltaTime)); //direction de la bullet
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.5f, layerTouch);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 0.2f, layerTouch);
     
         if (hit && !isHited)
         {
             isHited = true;
 
-            print("Layertouch value : " + hit.transform.gameObject.layer);
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 hit.collider.GetComponent<PlayerController>().PlayerDie();
+                hitEnemyBlood.Play();
             } else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 hit.collider.GetComponent<Enemy>().Die();
+                hitEnemyBlood.Play();
             }
             StartCoroutine(waitBeforeDisable(hit));
         }
@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour, IPooledObject
     IEnumerator waitBeforeDisable(RaycastHit2D hit)
     {
         renderer.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         isHited = false;
         gameObject.SetActive(false);
     }

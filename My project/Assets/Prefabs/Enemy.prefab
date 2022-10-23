@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 546346427469659773}
   - component: {fileID: 546346427469659772}
   - component: {fileID: 546346427469659775}
+  - component: {fileID: 2085745587}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -59,8 +60,8 @@ Transform:
   m_GameObject: {fileID: 546346427469659774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8118440291946268303}
   m_Father: {fileID: 0}
@@ -78,12 +79,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84ecb8c583d50a478a78add37c47c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDie: 0
   viewRange: {fileID: 8378096415197090812}
+  hitBoxEnemy: {fileID: 546346427469659772}
   newRenderer: {fileID: 2371368773775015712}
+  enemySpeed: 3
+  walkAnimation: {fileID: 2085745587}
+  itemWhenDie: {fileID: 4029127049678481575, guid: d3efdc9d41570094b9e93be26f2fe66e, type: 3}
+  bloodOnFloorParticle: {fileID: 9102406913821962643, guid: 3fbaeb1557c8b7e45be7a5a0813c04fd, type: 3}
   timeBeforeShoot: 0.2
   pistolPlaceHolder: {fileID: 1187108281}
   randomPistolAngle: 0.1
   shootTimeInterval: 1.5
+  timeToRunOnPlayer: 3
+  timeBeforeContinueAnimation: 5
 --- !u!58 &546346427469659772
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +129,27 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
+--- !u!95 &2085745587
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546346427469659774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d11f1df76f233c4aa4982885ecb2537, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2371368773775015712
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +177,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1187108281}
   - {fileID: 7888973118903562585}
@@ -195,7 +224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1948773482, guid: 9e58008b500d08944a2c5abf6e78ea67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -265,11 +294,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 4.0122232}
-      - {x: -3.024092, y: 4.0122232}
-      - {x: -0.43812227, y: -0.20978856}
-      - {x: 0.44628286, y: -0.20978856}
-      - {x: 3.064648, y: 4.0122237}
+    - - {x: 0, y: 10}
+      - {x: -5, y: 10}
+      - {x: -2, y: -0.5}
+      - {x: 2, y: -0.5}
+      - {x: 5, y: 10}
 --- !u!114 &13180568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,3 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Enemy: {fileID: 546346427469659773}
+  layerTouch:
+    serializedVersion: 2
+    m_Bits: 2056
