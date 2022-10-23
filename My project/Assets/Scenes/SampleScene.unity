@@ -412,9 +412,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 329174219}
     - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: shootTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: bloodOnFloorParticle
       value: 
       objectReference: {fileID: 9102406913821962643, guid: 3fbaeb1557c8b7e45be7a5a0813c04fd, type: 3}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeContinueAnimation
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 546346427469659774, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_Name
       value: SmallCorridorBasicSoldier
@@ -1818,7 +1834,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1324407599}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 10
     Dutch: 0
@@ -2009,9 +2025,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 489342373}
     - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: shootTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: bloodOnFloorParticle
       value: 
       objectReference: {fileID: 9102406913821962643, guid: 3fbaeb1557c8b7e45be7a5a0813c04fd, type: 3}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeContinueAnimation
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 546346427469659774, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_Name
       value: LivingRoomBasicSoldier
@@ -2411,7 +2443,7 @@ Camera:
   far clip plane: 10
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10050,6 +10082,22 @@ PrefabInstance:
     - target: {fileID: 546346427469659747, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -269.9895
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: shootTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeContinueAnimation
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 546346427469659774, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_Name
@@ -63848,9 +63896,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1734817026}
     - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: shootTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: bloodOnFloorParticle
       value: 
       objectReference: {fileID: 9102406913821962643, guid: 3fbaeb1557c8b7e45be7a5a0813c04fd, type: 3}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeContinueAnimation
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 546346427469659774, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_Name
       value: BigCorridorBasicSoldier (1)
@@ -64101,9 +64165,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1832835699}
     - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: shootTimeInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: bloodOnFloorParticle
       value: 
       objectReference: {fileID: 9102406913821962643, guid: 3fbaeb1557c8b7e45be7a5a0813c04fd, type: 3}
+    - target: {fileID: 546346427469659773, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
+      propertyPath: timeBeforeContinueAnimation
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 546346427469659774, guid: 57e0e787d8a31754891ca0e27787db90, type: 3}
       propertyPath: m_Name
       value: VoidRoomBasicSoldier (2)
@@ -67511,6 +67591,10 @@ PrefabInstance:
     - target: {fileID: 1324407597, guid: 07def739b983ad740ba1477f3eb75138, type: 3}
       propertyPath: magasinMaxBullet
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324407597, guid: 07def739b983ad740ba1477f3eb75138, type: 3}
+      propertyPath: randomPistolAngle
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1463744243, guid: 07def739b983ad740ba1477f3eb75138, type: 3}
       propertyPath: m_SortingOrder

@@ -63,7 +63,7 @@ public class PlayerController : MonoSingleton<PlayerController>
         if (Input.GetMouseButtonDown(0))
         {
             currentMagasinNumber--;
-            if (currentMagasinNumber < 0)
+            if (currentMagasinNumber <= 0)
             {
                 if (!isReloaded)
                 {
