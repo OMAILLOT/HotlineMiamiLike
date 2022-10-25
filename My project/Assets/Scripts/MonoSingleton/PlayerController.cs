@@ -62,25 +62,32 @@ public class PlayerController : MonoSingleton<PlayerController>
 
         if (Input.GetMouseButtonDown(0))
         {
-            currentMagasinNumber--;
-            if (currentMagasinNumber <= 0)
+            if (!isReloaded)
             {
-                if (!isReloaded)
-                {
-                    StartCoroutine(CheckNumberOfMagasinLeft());
-                }
-                return;
-            }
-            UiManager.Instance.DecreaseBulletOnUi(currentMagasinNumber);
-
-            PoolManager.Instance.SpawnFromPool("Bullet",
+                PoolManager.Instance.SpawnFromPool("Bullet",
                                                     pistolPlaceHolder.position,
                                                     new Quaternion(renderer.transform.rotation.x,
                                                     renderer.transform.rotation.y,
                                                     Random.Range(renderer.transform.rotation.z - randomPistolAngle, renderer.transform.rotation.z + randomPistolAngle),
                                                     renderer.transform.rotation.w));
+                currentMagasinNumber--;
+
+                UiManager.Instance.DecreaseBulletOnUi(currentMagasinNumber);
+
+                if (currentMagasinNumber <= 0)
+                {
+                    StartCoroutine(CheckNumberOfMagasinLeft());
+                }
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ReloadTime());
         }
     }
+
 
     IEnumerator CheckNumberOfMagasinLeft()
     {
@@ -88,17 +95,20 @@ public class PlayerController : MonoSingleton<PlayerController>
         {
             yield return new WaitForEndOfFrame();
         }
-        numberOfMagasin--;
         StartCoroutine(ReloadTime());
     }
 
     IEnumerator ReloadTime()
     {
-        isReloaded = true;
-        yield return new WaitForSeconds(reloadTime);
-        currentMagasinNumber = magasinMaxBullet;
-        UiManager.Instance.ReloadBulletUi(numberOfMagasin);
-        isReloaded = false;
+        if (numberOfMagasin > 0)
+        {
+            numberOfMagasin--;
+            isReloaded = true;
+            yield return new WaitForSeconds(reloadTime);
+            currentMagasinNumber = magasinMaxBullet;
+            UiManager.Instance.ReloadBulletUi(numberOfMagasin);
+            isReloaded = false;
+        }
     }
 
     #endregion
